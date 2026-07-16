@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hsgd-dr"
+version = "0.1.0"
+description = "Heterogeneous GraphSAGE-DistMult framework for drug repurposing over biomedical knowledge graphs."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas",
+  "numpy",
+  "scikit-learn",
+  "PyYAML",
+  "tqdm",
+  "torch",
+  "torch-geometric",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+hsgd-dr-prepare = "hsgd_dr.data_preprocessing:main"
+hsgd-dr-features = "hsgd_dr.node_features:main"
+hsgd-dr-leakage = "hsgd_dr.leakage_control:main"
+hsgd-dr-train = "hsgd_dr.training_evaluation:main"
+hsgd-dr-cv = "hsgd_dr.cross_validation:main"
+hsgd-dr-predict = "hsgd_dr.prediction:main"
+hsgd-dr-evidence = "hsgd_dr.evidence_retrieval:main"
+

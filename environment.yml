@@ -1,0 +1,15 @@
+name: hsgd-dr
+channels:
+  - pytorch
+  - pyg
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - scikit-learn
+  - pyyaml
+  - tqdm
+  - pytorch
+  - pyg
+
