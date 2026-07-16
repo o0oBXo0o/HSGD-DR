@@ -18,15 +18,33 @@ dependencies = [
   "torch-geometric",
 ]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools]
+py-modules = [
+  "contrastive_learning",
+  "cross_validation",
+  "data_preprocessing",
+  "evidence_retrieval",
+  "experiment_logging",
+  "io_utils",
+  "leakage_control",
+  "metrics",
+  "model_architecture",
+  "negative_sampling",
+  "node_features",
+  "prediction",
+  "pyg_dataset",
+  "schema",
+  "training_evaluation",
+]
+
+[tool.setuptools.package-dir]
+"" = "src"
 
 [project.scripts]
-hsgd-dr-prepare = "hsgd_dr.data_preprocessing:main"
-hsgd-dr-features = "hsgd_dr.node_features:main"
-hsgd-dr-leakage = "hsgd_dr.leakage_control:main"
-hsgd-dr-train = "hsgd_dr.training_evaluation:main"
-hsgd-dr-cv = "hsgd_dr.cross_validation:main"
-hsgd-dr-predict = "hsgd_dr.prediction:main"
-hsgd-dr-evidence = "hsgd_dr.evidence_retrieval:main"
-
+hsgd-dr-prepare = "data_preprocessing:main"
+hsgd-dr-features = "node_features:main"
+hsgd-dr-leakage = "leakage_control:main"
+hsgd-dr-train = "training_evaluation:main"
+hsgd-dr-cv = "cross_validation:main"
+hsgd-dr-predict = "prediction:main"
+hsgd-dr-evidence = "evidence_retrieval:main"

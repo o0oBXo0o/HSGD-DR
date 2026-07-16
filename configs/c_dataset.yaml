@@ -1,0 +1,39 @@
+project: HSGD-DR
+dataset: C-dataset
+seed: 42
+
+paths:
+  raw_dir: data/C-dataset
+  graph_dir: outputs/C-dataset/graph
+  cv_folds_dir: outputs/C-dataset/cv10
+  cv_run_dir: outputs/C-dataset/cv10_full
+
+preprocessing:
+  drug_disease: data/C-dataset/DrugDiseaseAssociationNumber.csv
+  drug_protein: data/C-dataset/DrugProteinAssociationNumber.csv
+  disease_protein: data/C-dataset/ProteinDiseaseAssociationNumber.csv
+  val_ratio: 0.10
+  test_ratio: 0.10
+  neg_ratio: 50
+  train_neg_ratio: 5
+
+features:
+  drug_features: data/C-dataset/Drug_mol2vec.csv
+  disease_features: data/C-dataset/DiseaseFeature.csv
+  protein_features: data/C-dataset/Protein_ESM.csv
+  missing: zero
+
+training:
+  hidden_dim: 128
+  num_layers: 2
+  epochs: 500
+  lr: 0.001
+  weight_decay: 0.00001
+  dropout: 0.20
+  proj_dim: 128
+  bpr_negatives_per_positive: 1
+  lambda_cl: 0.10
+  cl_temperature: 0.20
+  gate_init: -2.0
+  monitor: aupr
+  eval_every: 10
